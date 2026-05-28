@@ -126,7 +126,7 @@ app.secret_key = os.environ.get('FLASK_SECRET_KEY', os.urandom(24).hex())
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
-    SESSION_COOKIE_SECURE=os.environ.get('FLASK_DEBUG', '0') != '1',
+    SESSION_COOKIE_SECURE=True,  # Set to True in production with HTTPS
     SESSION_PERMANENT=True,
     PERMANENT_SESSION_LIFETIME=timedelta(days=7),
 )
