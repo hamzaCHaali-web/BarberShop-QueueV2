@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service arrêté · Service stopped</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: { DEFAULT: '#10b981', hover: '#059669', light: 'rgba(16,185,129,0.15)', glow: 'rgba(16,185,129,0.3)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%); }
+    .glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+    .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); }
+    @keyframes pulseRing { 0%,100% { opacity:0.4; transform:scale(1); } 50% { opacity:0.8; transform:scale(1.06); } }
+    .pulse-ring { animation: pulseRing 2s ease-in-out infinite; }
+    [dir="rtl"] .fr-only { display: none; }
+    [dir="ltr"] .ar-only { display: none; }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 font-sans text-white">
+  <div class="w-full max-w-sm">
+    <div class="glass rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden">
+
+      <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full pulse-ring"
+           style="background:radial-gradient(circle,var(--tw-shadow-color,rgba(16,185,129,0.3)) 0%,transparent 70%);box-shadow:0 0 40px rgba(16,185,129,0.15);"></div>
+      <div class="absolute -bottom-12 -left-12 w-40 h-40 rounded-full pulse-ring"
+           style="background:radial-gradient(circle,rgba(16,185,129,0.3) 0%,transparent 70%);animation-delay:1s;"></div>
+
+      <div class="flex justify-center mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase"
+              style="background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.25);">
+          <i data-lucide="pause-circle" class="w-3.5 h-3.5"></i>
+          STOPPED
+        </span>
+      </div>
+
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-accent-light/10">
+        <i data-lucide="triangle-alert" class="w-8 h-8 text-accent"></i>
+      </div>
+
+      <div class="mb-6" lang="fr">
+        <h1 class="text-2xl sm:text-3xl font-bold mb-2">Service actuellement arrêté</h1>
+        <p class="text-sm sm:text-base text-gray-400">Veuillez contacter le développeur pour plus d'informations.</p>
+      </div>
+
+      <div class="flex items-center gap-3 mb-6">
+        <span class="flex-1 h-px" style="background:linear-gradient(90deg,transparent,#10b981,transparent);"></span>
+        <span class="text-xs font-semibold tracking-widest uppercase text-accent">&amp;</span>
+        <span class="flex-1 h-px" style="background:linear-gradient(90deg,transparent,#10b981,transparent);"></span>
+      </div>
+
+      <div class="mb-8" lang="ar" dir="rtl">
+        <h1 class="text-2xl sm:text-3xl font-bold mb-2">الخدمة متوقفة حالياً</h1>
+        <p class="text-sm sm:text-base text-gray-400">يرجى الاتصال بالمطور لمزيد من المعلومات.</p>
+      </div>
+
+      <div class="glass-card rounded-xl p-5 text-left">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center bg-accent-light/10">
+            <i data-lucide="user" class="w-4.5 h-4.5 text-accent"></i>
+          </div>
+          <div>
+            <p class="text-sm font-medium">Développeur</p>
+            <p class="text-xs text-gray-500">مطور</p>
+          </div>
+        </div>
+
+        <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2.5 w-full px-5 py-3 rounded-xl text-sm font-medium text-white transition-all bg-accent hover:bg-emerald-700 hover:shadow-lg"
+           style="box-shadow:0 0 20px rgba(16,185,129,0.25);">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          Contacter via WhatsApp · تواصل عبر واتساب
+        </a>
+
+        <p class="text-xs text-gray-600 text-center mt-3">Réponse rapide · رد سريع</p>
+      </div>
+
+      <p class="text-xs text-gray-700 mt-6">&copy; 2026 Barbershop · System Control Panel</p>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+    (function(){
+      var lang = navigator.language || (navigator.languages && navigator.languages[0]) || 'fr';
+      document.documentElement.dir = lang.indexOf('ar') === 0 ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang.indexOf('ar') === 0 ? 'ar' : 'fr';
+    })();
+  </script>
+</body>
+</html>
